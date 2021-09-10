@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>location List | DIMS</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+        <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+        <script src="vendors/pnotify/dist/pnotify.js"></script>
+        <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="lib/w3/w3.css">
+        <link rel="stylesheet" href="lib/css/durable.css">
+        <script src="lib/js/CryptoJs.js?updated=9999999999"></script>
+        <script src="lib/js/config.js?updated=9999999999"></script>
+        <script src="lib/js/location.js?updated=9999999999"></script>
+</head>
+<body>
+    <div class="container-fluid" style="height:100%;overflow-y:scroll">
+        <div style="width: 100%;height: 30px; background-color: #EB984E;color: antiquewhite;font-weight: bold"><center>location List</center></div>
+        <div style="width:100%;height:50px;line-height:50px">
+            <div id="NewDurable" class="Center">
+                <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#NewLocModal" data-toggle="tooltip" title="Add Durable"> New </button>
+                <!-- <i class="fa fa-plus-circle" style="font-size: 30px;color:green" aria-hidden="true" data-toggle="modal" data-target="#NewDurableModal" data-toggle="tooltip" title="Add Durable"></i> -->
+            </div>
+        </div>
+        <div class="tbl_header Border Bold">
+            <div class="tbl_content20 BorderRight paddingLeft5 txt_overflo">รหัสสถานที่</div>
+            <div class="tbl_content20 BorderRight paddingLeft5 txt_overflo">อาคาร</div>
+            <div class="tbl_content20 BorderRight paddingLeft5 txt_overflo">ห้อง</div>
+            
+        </div>
+        <div id="loc_list" class="tbl_ResultContainer Border "></div>
+    </div>
+
+    <div id="NewLocModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-plus-circle" aria-hidden="true"></i> New Location</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="usr">รหัสสถานที่</label>
+                                <select class="form-control" id="loc_no">
+                                    <option value="L0001">FITM</option>
+                                    <option value="L0002">บริหาร</option>
+                                    <option value="L0003">Shop-ITI</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                    <label for="usr">อาคาร</label>
+                                    <select class="form-control" id="build_detail">
+                                        <option value="FITM">FITM </option>
+                                        <option value="บริหาร">บริหาร</option>
+                                        <option value="Shop-ITI">Shop-ITI</option>
+                                </select>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="usr">รหัสห้อง</label>
+                                    <input type="text" class="form-control" id="room_no" placeholder="RXXXX">
+                                    <select class="form-control" id="room_no">
+                                        <option value="R0001">A101</option>
+                                        <option value="R0002">A102</option>
+                                        <option value="R0003">A103</option>
+                                </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="usr">ห้อง</label>
+                                    <!-- <input type="text" class="form-control" id="room_detail"> -->
+                                    <select class="form-control" id="room_detail">
+                                        <option value="A101">A101</option>
+                                        <option value="A102">A102</option>
+                                        <option value="A103">A103</option>
+                                        <option value="A104">A104</option>
+                                        <option value="A105">A105</option>
+                                        <option value="A106">A106</option>
+                                        <option value="A107">A107</option>
+                                        <option value="A108">A108</option>
+                                        <option value="A109">A109</option>
+                                        <option value="A110">A110</option>
+                                        
+                                </select>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="loc_add_btn" type="button" class="btn btn-success">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="EditLocModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit location</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="usr">รหัสสถานที่</label>
+                                    <!-- <input type="text" class="form-control" id="ediloc_no"> -->
+                                    <select class="form-control" id="ediloc_no">
+                                        <option value="L0001">FITM</option>
+                                        <option value="L0002">บริหาร</option>
+                                        <option value="L0003">Shop-ITI</option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                        <label for="usr">อาคาร</label>
+                                        <select class="form-control" id="edibuild_detail">
+                                            <option value="FITM">FITM </option>
+                                            <option value="บริหาร">บริหาร</option>
+                                            <option value="Shop-ITI">Shop-ITI</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usr">รหัสห้อง</label>
+                                        <input type="text" class="form-control" id="ediroom_no">
+                                        <!-- <select class="form-control" id="ediroom_no">
+                                            <option value="R0001">A101</option>
+                                            <option value="R0002">A102</option>
+                                            <option value="R0003">A103</option>
+                                    </select> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usr">ห้อง</label>
+                                        <input type="text" class="form-control" id="ediroom_detail">
+                                        <!-- <select class="form-control" id="ediroom_detail">
+                                            <option value="A101">A101</option>
+                                            <option value="A102">A102</option>
+                                            <option value="A103">A103</option>
+                                    </select> -->
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="Loc_edit_btn" type="button" class="btn btn-success">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="DelLocModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><i class="fa fa-trash" aria-hidden="true"></i> Delete Durable</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="usr">รหัสสถานที่</label>
+                                        <input type="text" class="form-control" id="delloc_no">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="usr">อาคาร</label>
+                                            <input type="text" class="form-control" id="delbuild_detail">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="usr">รหัสห้อง</label>
+                                            <input type="text" class="form-control" id="delroom_no">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="usr">ห้อง</label>
+                                            <input type="text" class="form-control" id="delroom_detail">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="loc_del_btn" type="button" class="btn btn-success">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

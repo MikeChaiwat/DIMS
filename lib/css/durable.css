@@ -1,0 +1,181 @@
+.panel-body {
+  overflow-y: scroll;
+}
+.panel-footer {
+  height: 65px;
+}
+.tbl_header {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background-color: #9370db;
+}
+.txt_overflo {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.tbl_content10 {
+  width: 10%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  color: #fff;
+  text-align: -webkit-center;
+}
+.tbl_content20 {
+  width: 20%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  color: #fff;
+  text-align: -webkit-center;
+}
+.tbl_content45 {
+  width: 45%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  color: #fff;
+  text-align: -webkit-center;
+}
+.tbl_content35 {
+  width: 35%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  color: #fff;
+  text-align: -webkit-center;
+}
+.tbl_content25 {
+  width: 25%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+}
+
+.tbl_ResultContainer {
+  width: 100%;
+  height: 600px;
+  overflow-y: auto;
+}
+
+.tbl_ResultItemContainer {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+}
+.tbl_ResultItem20 {
+  width: 20%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.tbl_ResultItem21 {
+  width: 22%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.tbl_ResultItem25 {
+  width: 25%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.tbl_ResultItem35 {
+  width: 35%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.tbl_ResultItem45 {
+  width: 45%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.tbl_ResultItem5 {
+  width: 5%;
+  height: 25px;
+  line-height: 25px;
+  float: right;
+}
+
+.tbl_ResultItem10 {
+  width: 10%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.tbl_ResultItem16 {
+  width: 16%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+}
+.panel-footer {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+#NewDurable {
+  width: auto;
+}
+#NewDurable:hover {
+  cursor: pointer;
+}
+.editdurable:hover {
+  cursor: pointer;
+}
+.deldurable:hover {
+  cursor: pointer;
+}
+
+/* *********************************************** */
+/*              Utility                            */
+/* *********************************************** */
+.Bold {
+  font-weight: bold;
+}
+.paddingLeft5 {
+  padding-left: 5px;
+}
+.Center {
+  text-align: center;
+}
+.Border {
+  border: 1px solid #e5e7e9;
+}
+.BorderTop {
+  border-top: 1px solid #e5e7e9;
+}
+.BorderBottom {
+  border-bottom: 1px solid #e5e7e9;
+}
+.BorderLeft {
+  border-left: 1px solid #e5e7e9;
+}
+.BorderRight {
+  border-right: 1px solid #e5e7e9;
+}

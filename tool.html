@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Borrow List | DIMS</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+        <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+        <script src="vendors/pnotify/dist/pnotify.js"></script>
+        <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="lib/w3/w3.css">
+        <link rel="stylesheet" href="lib/css/borrow.css">
+        <script src="lib/js/CryptoJs.js?updated=9999999999"></script>
+        <script src="lib/js/config.js?updated=9999999999"></script>
+        <script src="lib/js/borrow.js?updated=9999999999"></script>
+</head>
+<body>
+        <div class="container-fluid" style="height:100%;overflow-y:scroll">
+                <div style="width: 100%;height: 30px; background-color: #2980B9  ;color: antiquewhite;font-weight: bold"><center>รายการยืม</center></div>
+                <div style="width:100%;height:50px;line-height:50px">
+                </div>
+                <div class="tbl_header Border Bold">
+                    <div class="tbl_content12 BorderRight paddingLeft5">รหัสผู้ยืม</div>
+                    <div class="tbl_content12 BorderRight paddingLeft5">ชื่อ</div>
+                    <div class="tbl_content12 BorderRight paddingLeft5">นามสกุล</div>
+                    <div class="tbl_content15 BorderRight paddingLeft5">หมายเลขครุภัณฑ์</div>
+                    <div class="tbl_content12 BorderRight paddingLeft5">ชื่อตั้งเบิก</div>
+                    <div class="tbl_content12 BorderRight paddingLeft5">สถานที่ยืม</div>
+                    <div class="tbl_content12 BorderRight paddingLeft5">วันที่ยืม</div>
+                    <div class="tbl_content12 paddingLeft5">วันที่คืน</div>
+                </div>
+                <div id="BorrowList" class="tbl_ResultContainer Border"></div>
+            </div>
+</body>
+</html>

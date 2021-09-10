@@ -1,0 +1,133 @@
+.tbl_header{
+    width:100%;
+    height:30px;
+    line-height:30px;
+    background-color: #9370DB;
+}
+.txt_overflo{
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:clip;
+
+}
+.tbl_content5{
+    width:5%;
+    height:30px;
+    line-height:30px;
+    float:left;
+}
+.tbl_content10{
+    width:10%;
+    height:30px;
+    line-height:30px;
+    float:left;
+    color: #fff;
+    text-align: -webkit-center;
+}
+.tbl_content15{
+    width:15%;
+    height:30px;
+    line-height:30px;
+    float:left;
+    color: #fff;
+    text-align: -webkit-center;
+    
+}
+.tbl_content20{
+    width:20%;
+    height:30px;
+    line-height:30px;
+    float:left;
+}
+
+.tbl_ResultContainer{
+    width:100%;
+    height:300px;
+    overflow-y: auto;
+}
+
+.tbl_ResultItemContainer{
+    width:100%;
+    height:35px;
+    line-height:35px;
+}
+.tbl_ResultItem10{
+    width:10%;
+    height:25px;
+    line-height:25px;
+    float:left;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:clip;
+}
+.tbl_ResultItem20{
+    width:20%;
+    height:25px;
+    line-height:25px;
+    float:left;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:clip;
+}
+.tbl_ResultItem15{
+    width:15%;
+    height:25px;
+    line-height:25px;
+    float:left;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:clip;
+    
+}
+.tbl_ResultItem5{
+    width:5%;
+    height:25px;
+    line-height:25px;
+    float:right;
+}
+
+.tbl_ResultItem10{
+    width:10%;
+    height:25px;
+    line-height:25px;
+    float:left;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:clip;
+    
+}
+.tbl_ResultItem16{
+    width:16%;
+    height:25px;
+    line-height:25px;
+    float:left;
+    
+}
+
+/* *********************************************** */
+/*              Utility                            */
+/* *********************************************** */
+.Bold{
+    font-weight: bold;
+}
+.paddingLeft5{
+    padding-left: 5px;
+}
+.Center{
+    text-align: center;
+}
+.Border{
+    border: 1px solid #E5E7E9;
+}
+.BorderTop{
+    border-top: 1px solid #E5E7E9;
+}
+.BorderBottom{
+    border-bottom: 1px solid #E5E7E9;
+}
+.BorderLeft{
+    border-left: 1px solid #E5E7E9;
+}
+.BorderRight{
+    border-right: 1px solid #E5E7E9;
+}

@@ -1,0 +1,206 @@
+<html>
+
+<head>
+    <title>DIMS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <script src="vendors/pnotify/dist/pnotify.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/w3/w3.css">
+    <link rel="stylesheet" href="lib/css/checkdurable.css">
+    <script src="lib/js/CryptoJs.js"></script>
+    <script src="lib/js/config.js"></script>
+    <script src="lib/js/checkdurable.js"></script>
+    <style>
+        option[value=""][disabled] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="main-panel">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div style="position: relative;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -ms-flex-direction: column;
+                                flex-direction: column;
+                                min-width: 0;
+                                width: auto;
+                                word-wrap: break-word;
+                                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+                                background-color: #FFFFFF;
+                                background-clip: border-box;
+                                border: 1px solid rgba(0,0,0,.125);
+                                border-radius: .25rem;">
+                            
+                            <div class="header" align="center">
+                                <h4 class="title">รายการตรวจสอบครุภัณฑ์</h4>
+                            </div>
+                            <div class="col">
+                                <center><button class="btn btn-success" data-toggle="modal" data-target="#CheckDurable"
+                                        data-toggle="tooltip" title="Scan QR Code" id="scanCheck"
+                                        style="margin-left: 2%"><i class="fa fa-qrcode" aria-hidden="true"></i>
+                                        ตรวจสอบครุภัณฑ์</button></center>
+                                <div style="margin-left: 1%;margin-top: 1%;margin-bottom: 1%;">
+                                    <select class="form-control" id="room_check"
+                                        style="width: 200px; margin-left: 5%;margin-top: 1%;margin-bottom: 1%;">
+                                    </select>
+                                    
+                                    <!-- <div id="showSelectDu"></div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container"
+                            style="position: relative;
+                                    display: -ms-flexbox;
+                                    display: flex;
+                                    -ms-flex-direction: column;
+                                    flex-direction: column;
+                                    min-width: 0;
+                                    width: 100%;
+                                    word-wrap: break-word;
+                                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+                                    background-color: #FFFFFF;
+                                    background-clip: border-box;
+                                    border: 1px solid rgba(0,0,0,.125);
+                                    border-radius: .25rem; height: 390px; width: 100%; overflow-y: auto; margin-top: 1%;">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>หมายเลขครุภัณฑ์</th>
+                                        <th>ชื่อตั้งเบิก</th>                 
+                                        <th>ห้อง</th>
+                                        <th>สถานะโอนย้าย</th>
+                                        <th>สถานะครุภัณฑ์</th>
+                                        <th>ตรวจสอบ</th>
+                                        <th>ผู้ตรวจสอบ</th>
+                                        <th>วันที่ตรวจสอบ</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="checkdurablelist" style="overflow-y: auto;">
+                
+                                </tbody>
+                            </table>
+                            <!-- <div style="height: 390px; width: 100%; overflow-y: auto;"> -->
+                            <!-- <table class="table"> -->
+                            <!-- <tbody id="checkdurablelist"> -->
+                            <!-- <div id="checkdurablelist"></div> -->
+                            <!-- </tbody> -->
+                            <!-- </table> -->
+                            <!-- </div> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </>
+    <div id="CheckDurable" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="scanCheck">ตรวจสอบครุภัณฑ์</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <center>
+                            <!-- <i class="fa fa-qrcode" aria-hidden="true" style="cursor: pointer; font-size: 300px;"></i> -->
+                            <div class="well" style="position: relative;display: inline-block;">
+                                <canvas id="check_canvas" width="300" height="300"></canvas>
+                                <div class="scanner-laser laser-rightBottom" style="opacity: 0.5;"></div>
+                                <div class="scanner-laser laser-rightTop" style="opacity: 0.5;"></div>
+                                <div class="scanner-laser laser-leftBottom" style="opacity: 0.5;"></div>
+                                <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
+                            </div>
+                            <div><button id="scanCheck" type="button" class=""><i class="fa fa-refresh"
+                                        aria-hidden="true"></i></button></div>
+                        </center>
+                    </div>
+                    <h3>
+                        <center>หรือ</center>
+                    </h3>
+                    <div>
+                        <center><input type="text" name="" id="check_scan" placeholder="ใส่หมายเลขครุภัณฑ์">
+                            <button id="durable_check_btn" type="button" class="btn btn-success">ยืนยัน</button>
+                        </center>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ListCheckDurable" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <center>ข้อมูลครุภัณฑ์
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- <div class="panel-heading">
+                                            <div id="showDurable"></div>
+                                        </div> -->
+                        <div id="ChecklistDurable"></div>
+
+                        <input type="text" name="" id="Duview_detail" hidden="hidden">
+                        <input type="text" name="" id="status_id" hidden="hidden">
+                        <input type="text" name="" id="holding_id" hidden="hidden">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="statuscheck">
+                    <button type="button" id="confirmcheck" class="btn btn-success">ยืนยันการตรวจสอบ</button>
+                    <button type="button" id="closecheck" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="EditCheckDurable" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <center>อัพเดทข้อมูล
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div id="showEdit"></div>
+                        <li class="list-group-item">เลือกสถานที่/ห้อง <select id="edt_room" class="list-group-item"
+                                style="width: 200px; margin-left: 5%;margin-top: 1%;margin-bottom: 1%;"></select></li>
+
+                    </div>
+                    <input type="text" name="" id="edt_du_id" hidden="hidden">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                    <button type="button" id="update" class="btn btn-success" data-dismiss="modal">อัพเดทข้อมูล</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

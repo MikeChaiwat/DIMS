@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit List | DIMS</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+        <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+        <script src="vendors/pnotify/dist/pnotify.js"></script>
+        <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="lib/w3/w3.css">
+        <link rel="stylesheet" href="lib/css/durable.css">
+        <script src="lib/js/CryptoJs.js?updated=9999999999"></script>
+        <script src="lib/js/config.js?updated=9999999999"></script>
+        <script src="lib/js/unit.js?updated=9999999999"></script>
+</head>
+<body>
+    <div class="container-fluid" style="height:100%;overflow-y:scroll">
+        <div style="width: 100%;height: 30px; background-color: #EB984E;color: antiquewhite;font-weight: bold"><center>Unit List</center></div>
+        <div style="width:100%;height:50px;line-height:50px">
+            <div id="NewDurable" class="Center">
+                <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#NewUnitModal" data-toggle="tooltip" title="Add Durable"> New </button>
+                <!-- <i class="fa fa-plus-circle" style="font-size: 30px;color:green" aria-hidden="true" data-toggle="modal" data-target="#NewDurableModal" data-toggle="tooltip" title="Add Durable"></i> -->
+            </div>
+        </div>
+        <div class="tbl_header Border Bold">
+            <div class="tbl_content20 BorderRight paddingLeft5 txt_overflo">Unit_id</div>
+            <div class="tbl_content20 BorderRight paddingLeft5 txt_overflo">Unit_detail</div>
+            
+        </div>
+        <div id="unit_list" class="tbl_ResultContainer Border "></div>
+    </div>
+
+    <div id="NewUnitModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-plus-circle" aria-hidden="true"></i> New Unit</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="usr">Unit No</label>
+                                <input type="text" class="form-control" id="unit_no">
+                            </div>
+                            <div class="form-group">
+                                    <label for="usr">unit_detail</label>
+                                    <input type="text" class="form-control" id="unit_detail">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="unit_add_btn" type="button" class="btn btn-success">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="EditUnitModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Durable</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="usr">Unit No</label>
+                                        <input type="text" class="form-control" id="ediunit_no">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="usr">unit_detail</label>
+                                            <input type="text" class="form-control" id="ediunit_detail">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="unit_edit_btn" type="button" class="btn btn-success">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="DelUnitModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><i class="fa fa-trash" aria-hidden="true"></i> Delete Durable</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                                <div class="form-group">
+                                                    <label for="usr">Unit No</label>
+                                                    <input type="text" class="form-control" id="delunit_no">
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="usr">unit_detail</label>
+                                                        <input type="text" class="form-control" id="delunit_detail">
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="unit_del_btn" type="button" class="btn btn-success">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

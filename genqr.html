@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="lib/boots/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>DIMS</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="lib/boots/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="lib/boots/css/animate.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="lib/boots/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="lib/boots/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+    <!-- original -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <link href="vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <script src="vendors/pnotify/dist/pnotify.js"></script>
+    <script src="vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/w3/w3.css">
+    <link rel="stylesheet" href="lib/css/borrow.css">
+    <script src="lib/js/CryptoJs.js"></script>
+    <script src="lib/js/config.js"></script>
+    <script src="lib/js/genqr.js"></script>
+    
+
+</head>
+
+<body>
+        <div class="wrapper">
+        <div class="sidebar" data-color="purple" data-image="lib/boots/img/sidebar-5.jpg">
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="#" class="simple-text">
+                        DIMS
+                    </a>
+                </div>
+
+                <ul class="nav">
+                    <li class="active">
+                        <a href="main.php?page=home">
+                            <i class="pe-7s-graph"></i>
+                            <p>หน้าแรก</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="main.php?page=durable">
+                            <i class="pe-7s-user"></i>
+                            <p>รายการครุภัณฑ์</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="main.php?page=toollist">
+                            <i class="pe-7s-note2"></i>
+                            <p>รายการเครื่องมือ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="main.php?page=member">
+                            <i class="pe-7s-news-paper"></i>
+                            <p>รายการผู้ใช้งาน</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="main.php?page=borrowlist">
+                            <i class="pe-7s-science"></i>
+                            <p>รายการยืม</p>
+                        </a>
+                    </li>
+                    <li>
+                            <a href="main.php?page=qrcode">
+                                <i class="pe-7s-tools"></i>
+                                <p>QR-CODE</p>
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+        <!-- หน้าที่ใช้เขียนข้อมูล panel -->
+        <div class="main-panel" style="margin-top: 1%;">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- card -->
+                            <div class="card ">
+                                <div class="header">
+                                    <h4 class="title">รายการครุภัณฑ์</h4>
+                                    
+                                </div>
+                                
+                                <div style="padding-left: 2%; padding-right: 2%; padding-bottom: 5%; margin-top: 2%;">                                
+                                    <div id="DurableListGenQR" class="tbl_ResultContainer Border "></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ViewDurableGenQRModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-md" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-pencil-square" aria-hidden="true"></i> ข้อมูลครุภัณฑ์
+                        </h4>
+                    </div>
+                    <div class="modal-body" >
+                        <div class="modal-body">
+                            <div class="row">
+                                    <div class="panel panel-default">
+                                        <center><div id="showpicQR"></div></center>
+                                        <div class="panel-heading"><div id="showDurableQR"></div></div>
+                                        <div class="panel-body" style="height: 200px">
+                                            <ul class="w3-ul" id="listDurableQR">
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="" id="Duview_name_genqr" hidden="hidden">
+                                    <input type="text" name="" id="Duview_detail_genqr" hidden="hidden">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="close_view" class="btn btn-default" data-dismiss="modal">ปิด</button>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="QRCodeModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-qrcode" aria-hidden="true"></i> QR-CODE</h4>
+                    </div>
+                    <div class="modal-body">
+                        <center>
+                            <div id="qrcode"></div>
+                            <div id="text-qr"></div>
+                        </center>
+                        <input type="text" name="" id="durable_id_genqr" hidden="hidden">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+       
+     
+</body>
+
+<!--   Core JS Files   -->
+<script src="lib/boots/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="lib/boots/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="lib/boots/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="lib/boots/js/bootstrap-notify.js"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="lib/boots/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="lib/boots/js/demo.js"></script>
+
+
+</html>

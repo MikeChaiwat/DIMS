@@ -1,0 +1,119 @@
+.tbl_header {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background-color: #9370db;
+}
+.tbl_content15 {
+  width: 15%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  color: #fff;
+  text-align: -webkit-center;
+}
+.tbl_content20 {
+  width: 20%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+}
+.tbl_content30 {
+  width: 30%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  color: #fff;
+  text-align: -webkit-center;
+}
+
+.tbl_ResultContainer {
+  width: 100%;
+}
+
+.tbl_ResultItemContainer {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+}
+.tbl_ResultItem15 {
+  width: 15%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.tbl_ResultItem30 {
+  width: 30%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.tbl_ResultItem14 {
+  width: 14%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+}
+.tbl_ResultItem3 {
+  width: 3%;
+  height: 25px;
+  line-height: 25px;
+  float: right;
+}
+
+.tbl_ResultItem20 {
+  width: 20%;
+  height: 25px;
+  line-height: 25px;
+  float: left;
+}
+
+#NewMember {
+  width: 50px;
+}
+#NewMember:hover {
+  cursor: pointer;
+}
+.editmember:hover {
+  cursor: pointer;
+}
+.delmember:hover {
+  cursor: pointer;
+}
+
+/* *********************************************** */
+/*              Utility                            */
+/* *********************************************** */
+.Bold {
+  font-weight: bold;
+}
+.paddingLeft5 {
+  padding-left: 5px;
+}
+.Center {
+  text-align: center;
+}
+.Border {
+  border: 1px solid #e5e7e9;
+}
+.BorderTop {
+  border-top: 1px solid #e5e7e9;
+}
+.BorderBottom {
+  border-bottom: 1px solid #e5e7e9;
+}
+.BorderLeft {
+  border-left: 1px solid #e5e7e9;
+}
+.BorderRight {
+  border-right: 1px solid #e5e7e9;
+}
